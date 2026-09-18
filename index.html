@@ -196,18 +196,33 @@
     let coins = [];
     const urlParams = new URLSearchParams(window.location.search);
     const symParam = urlParams.get('symbols');
-    if (symParam) {
-      const stockSet = new Set(["DKNGUSDT", "BXUSDT", "ARMUSDT", "MUUSDT", "TZAUSDT", "AMATUSDT", "MRVLUSDT", "AMCUSDT", "COHRUSDT", "CSOPSAMSUNG2LUSDT"]);
-      coins = symParam.split(',').map(s => {
-        const clean = s.trim().toUpperCase();
-        return {
-          s: clean,
-          type: stockSet.has(clean) ? "Stock" : "Crypto",
-          tag: "Bullish Hammer"
-        };
-      });
-    } else {
-      coins = DEFAULT_COINS;
+
+    async function initCoins() {
+      if (symParam) {
+        const stockSet = new Set(["DKNGUSDT", "BXUSDT", "ARMUSDT", "MUUSDT", "TZAUSDT", "AMATUSDT", "MRVLUSDT", "AMCUSDT", "COHRUSDT", "CSOPSAMSUNG2LUSDT"]);
+        coins = symParam.split(',').map(s => {
+          const clean = s.trim().toUpperCase();
+          return {
+            s: clean,
+            type: stockSet.has(clean) ? "Stock" : "Crypto",
+            tag: "Bullish Hammer"
+          };
+        });
+        syncBuffer();
+      } else {
+        try {
+          const res = await fetch('coins.json?v=' + Date.now());
+          if (res.ok) {
+            coins = await res.json();
+            if (!coins || coins.length === 0) coins = DEFAULT_COINS;
+          } else {
+            coins = DEFAULT_COINS;
+          }
+        } catch (e) {
+          coins = DEFAULT_COINS;
+        }
+        syncBuffer();
+      }
     }
 
     const BUFFER_SIZE = 5; // Exactly 5 previous + 1 active + 5 next
@@ -228,6 +243,7 @@
 
     // Maintains the 11-chart pre-rendered buffer (5 prev, current, 5 next)
     function syncBuffer() {
+      if (!coins || coins.length === 0) return;
       const minIdx = Math.max(0, currentIndex - BUFFER_SIZE);
       const maxIdx = Math.min(coins.length - 1, currentIndex + BUFFER_SIZE);
 
@@ -258,15 +274,18 @@
     }
 
     function updateTopBottomUI() {
+      if (!coins || coins.length === 0) return;
       const c = coins[currentIndex];
-      document.getElementById('symName').textContent = c.s;
+      const priceText = c.price ? ` $${c.price}` : '';
+      const wickText = c.wick ? ` • Wick: ${c.wick}%` : '';
+      document.getElementById('symName').textContent = `${c.s}${priceText}`;
       
       const badge = document.getElementById('symBadge');
       badge.textContent = `${c.type} Futures`;
       badge.className = `badge ${c.type === 'Stock' ? 'badge-stock' : 'badge-crypto'}`;
 
       const hBadge = document.getElementById('hammerBadge');
-      hBadge.textContent = c.tag || "Hammer";
+      hBadge.textContent = `${c.tag || "Hammer"}${wickText}`;
       hBadge.className = `badge ${(c.tag && c.tag.includes('Red')) ? 'badge-red' : 'badge-green'}`;
 
       document.getElementById('slideCounter').textContent = `${currentIndex + 1} / ${coins.length}`;
@@ -321,7 +340,7 @@
     });
 
     // Initialize
-    syncBuffer();
+    initCoins();
   </script>
 </body>
 </html>
