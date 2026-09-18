@@ -30,27 +30,29 @@
       -webkit-user-select: none;
     }
 
-    /* Top Navigation & Info Header */
+    /* Top Status & Info Bar */
     .top-bar {
-      height: 54px;
+      height: 52px;
       background: #181a20;
       border-bottom: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 14px;
-      z-index: 10;
+      padding: 0 12px;
+      z-index: 20;
       position: relative;
     }
     .sym-details {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
+      overflow: hidden;
     }
     .sym-name {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.2px;
+      white-space: nowrap;
     }
     .badge {
       font-size: 10px;
@@ -58,6 +60,7 @@
       padding: 2px 6px;
       border-radius: 4px;
       text-transform: uppercase;
+      white-space: nowrap;
     }
     .badge-stock { background: rgba(59, 130, 246, 0.2); color: var(--stock-badge); border: 1px solid var(--stock-badge); }
     .badge-crypto { background: rgba(168, 85, 247, 0.2); color: var(--crypto-badge); border: 1px solid var(--crypto-badge); }
@@ -71,14 +74,16 @@
       background: #2b313a;
       padding: 4px 8px;
       border-radius: 12px;
+      white-space: nowrap;
     }
 
     /* Main Chart Viewport */
     .carousel-container {
       width: 100%;
-      height: calc(100% - 110px);
+      height: calc(100% - 108px);
       position: relative;
       overflow: hidden;
+      background: var(--bg);
     }
     .slide {
       position: absolute;
@@ -86,7 +91,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      transition: transform 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+      transition: transform 0.26s cubic-bezier(0.25, 1, 0.5, 1);
       display: flex;
       flex-direction: column;
     }
@@ -96,14 +101,22 @@
       border: none;
       background: var(--bg);
     }
-    .placeholder {
+
+    /* Transparent Touch Overlay for Swiping across iframes */
+    .touch-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 13px;
+      z-index: 10;
+      background: transparent;
+      cursor: grab;
+      touch-action: pan-y;
+      display: block;
+    }
+    .touch-overlay.hidden {
+      pointer-events: none;
     }
 
     /* Bottom Control Bar */
@@ -114,8 +127,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 16px;
-      z-index: 10;
+      padding: 0 12px;
+      z-index: 20;
       position: relative;
     }
     .nav-btn {
@@ -124,11 +137,11 @@
       color: #fff;
       font-size: 13px;
       font-weight: 600;
-      padding: 8px 16px;
+      padding: 9px 15px;
       border-radius: 8px;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       cursor: pointer;
       touch-action: manipulation;
     }
@@ -139,6 +152,26 @@
       opacity: 0.35;
       cursor: not-allowed;
     }
+    .center-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .mode-toggle {
+      background: #1e222d;
+      border: 1px solid #2f3542;
+      color: var(--text-muted);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .mode-toggle.active {
+      color: var(--gold);
+      border-color: rgba(240, 185, 11, 0.4);
+    }
     .binance-link {
       font-size: 11px;
       color: var(--gold);
@@ -146,29 +179,35 @@
       font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 3px;
     }
   </style>
 </head>
 <body>
 
   <!-- Top Status Bar -->
-  <div class="top-bar">
+  <div class="top-bar" id="topBar">
     <div class="sym-details">
       <span class="sym-name" id="symName">LOADING...</span>
       <span class="badge" id="symBadge">FUTURES</span>
       <span class="badge" id="hammerBadge">HAMMER</span>
     </div>
-    <div class="counter" id="slideCounter">1 / 10</div>
+    <div class="counter" id="slideCounter">1 / 165</div>
   </div>
 
-  <!-- Carousel Area (Touch Swipe Enabled) -->
-  <div class="carousel-container" id="carouselContainer"></div>
+  <!-- Carousel Area -->
+  <div class="carousel-container" id="carouselContainer">
+    <!-- Touch overlay captures horizontal swipes smoothly over iframes -->
+    <div class="touch-overlay" id="touchOverlay"></div>
+  </div>
 
   <!-- Bottom Nav Controls -->
-  <div class="bottom-bar">
+  <div class="bottom-bar" id="bottomBar">
     <button class="nav-btn" id="prevBtn" onclick="prevSlide()">◀ Prev</button>
-    <a href="#" target="_blank" class="binance-link" id="binanceLink">Open on Binance ↗</a>
+    <div class="center-actions">
+      <button class="mode-toggle active" id="modeBtn" onclick="toggleMode()">✋ Swipe Mode</button>
+      <a href="#" target="_blank" class="binance-link" id="binanceLink">Binance ↗</a>
+    </div>
     <button class="nav-btn" id="nextBtn" onclick="nextSlide()">Next ▶</button>
   </div>
 
@@ -179,7 +218,6 @@
       window.Telegram.WebApp.expand();
     }
 
-    // Default 10 pairs (Stocks + Cryptos) or load from URL query '?symbols=DKNGUSDT,BXUSDT,...'
     const DEFAULT_COINS = [
       { s: "DKNGUSDT", type: "Stock", tag: "🟢 Green" },
       { s: "BXUSDT", type: "Stock", tag: "🔴 Red" },
@@ -199,7 +237,7 @@
 
     async function initCoins() {
       if (symParam) {
-        const stockSet = new Set(["DKNGUSDT", "BXUSDT", "ARMUSDT", "MUUSDT", "TZAUSDT", "AMATUSDT", "MRVLUSDT", "AMCUSDT", "COHRUSDT", "CSOPSAMSUNG2LUSDT"]);
+        const stockSet = new Set(["AAOIUSDT","ALABUSDT","AMATUSDT","AMCUSDT","ANETUSDT","APLDUSDT","ARMUSDT","AXTIUSDT","BXUSDT","BYDUSDT","BZUSDT","COHRUSDT","CRDOUSDT","CSOPSAMSUNG2LUSDT","CXMTUSDT","DKNGUSDT","FLNCUSDT","GLBEUSDT","HIMSUSDT","HOODUSDT","MRVLUSDT","MUUSDT","PLTRUSDT","RBLXUSDT","RDDTUSDT","RIVNUSDT","SMCIUSDT","SOFIUSDT","SYMUSDT","TZAUSDT","UUSDT"]);
         coins = symParam.split(',').map(s => {
           const clean = s.trim().toUpperCase();
           return {
@@ -225,7 +263,8 @@
       }
     }
 
-    const BUFFER_SIZE = 5; // Exactly 5 previous + 1 active + 5 next
+    // Memory Buffer: Strictly 5 previous + 1 active + 5 next (11 total pre-rendered)
+    const BUFFER_SIZE = 5;
     let currentIndex = 0;
     const container = document.getElementById('carouselContainer');
     const slideElements = new Map(); // index -> DOM slide element
@@ -241,13 +280,12 @@
       });
     }
 
-    // Maintains the 11-chart pre-rendered buffer (5 prev, current, 5 next)
     function syncBuffer() {
       if (!coins || coins.length === 0) return;
       const minIdx = Math.max(0, currentIndex - BUFFER_SIZE);
       const maxIdx = Math.min(coins.length - 1, currentIndex + BUFFER_SIZE);
 
-      // Remove slides outside the [minIdx, maxIdx] window
+      // 1. Evict distant slides outside the 11-chart buffer window
       for (const [idx, el] of slideElements.entries()) {
         if (idx < minIdx || idx > maxIdx) {
           container.removeChild(el);
@@ -255,11 +293,12 @@
         }
       }
 
-      // Pre-render slides within the [minIdx, maxIdx] window
+      // 2. Pre-render slides within buffer window
       for (let i = minIdx; i <= maxIdx; i++) {
         if (!slideElements.has(i)) {
           const slide = document.createElement('div');
           slide.className = 'slide';
+          slide.style.transform = `translateX(${(i - currentIndex) * 100}%)`;
           const iframe = document.createElement('iframe');
           iframe.src = getChartUrl(coins[i].s);
           iframe.loading = "lazy";
@@ -309,23 +348,49 @@
       }
     }
 
+    // Toggle between Swipe Navigation mode and Chart Interactive mode
+    let isSwipeMode = true;
+    function toggleMode() {
+      isSwipeMode = !isSwipeMode;
+      const overlay = document.getElementById('touchOverlay');
+      const modeBtn = document.getElementById('modeBtn');
+      if (isSwipeMode) {
+        overlay.classList.remove('hidden');
+        modeBtn.classList.add('active');
+        modeBtn.textContent = '✋ Swipe Mode';
+      } else {
+        overlay.classList.add('hidden');
+        modeBtn.classList.remove('active');
+        modeBtn.textContent = '🔍 Chart Mode';
+      }
+    }
+
     // Touch Swipe Gesture Detection
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX = 0;
+    let touchEndY = 0;
 
-    container.addEventListener('touchstart', e => {
-      touchStartX = e.changedTouches[0].screenX;
-    }, { passive: true });
+    function onTouchStart(e) {
+      if (e.changedTouches && e.changedTouches[0]) {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }
+    }
 
-    container.addEventListener('touchend', e => {
-      touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
-    }, { passive: true });
+    function onTouchEnd(e) {
+      if (e.changedTouches && e.changedTouches[0]) {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+      }
+    }
 
     function handleSwipe() {
-      const diff = touchEndX - touchStartX;
-      if (Math.abs(diff) > 45) {
-        if (diff < 0) {
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < 0) {
           nextSlide(); // swipe left -> next
         } else {
           prevSlide(); // swipe right -> prev
@@ -333,7 +398,20 @@
       }
     }
 
-    // Keyboard Arrow navigation for desktop
+    // Attach listeners to touch overlay, top bar, and bottom bar
+    const touchOverlay = document.getElementById('touchOverlay');
+    touchOverlay.addEventListener('touchstart', onTouchStart, { passive: true });
+    touchOverlay.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    const topBar = document.getElementById('topBar');
+    topBar.addEventListener('touchstart', onTouchStart, { passive: true });
+    topBar.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    const bottomBar = document.getElementById('bottomBar');
+    bottomBar.addEventListener('touchstart', onTouchStart, { passive: true });
+    bottomBar.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    // Keyboard Arrow navigation for Desktop
     window.addEventListener('keydown', e => {
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
       if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
