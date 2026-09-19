@@ -192,7 +192,7 @@
       <span class="badge" id="symBadge">FUTURES</span>
       <span class="badge" id="hammerBadge">HAMMER</span>
     </div>
-    <div class="counter" id="slideCounter">1 / 165</div>
+    <div class="counter" id="slideCounter">1 / ...</div>
   </div>
 
   <!-- Carousel Area -->
@@ -248,17 +248,40 @@
         });
         syncBuffer();
       } else {
+        // Priority 1: Direct GitHub API for instant real-time commit data (0s build delay, no CDN cache)
         try {
-          const res = await fetch('coins.json?v=' + Date.now());
+          const res = await fetch('https://api.github.com/repos/DDA1O1/hammer-carousel/contents/coins.json', {
+            headers: { 'Accept': 'application/vnd.github.v3.raw' },
+            cache: 'no-store'
+          });
           if (res.ok) {
-            coins = await res.json();
-            if (!coins || coins.length === 0) coins = DEFAULT_COINS;
-          } else {
-            coins = DEFAULT_COINS;
+            const data = await res.json();
+            if (Array.isArray(data) && data.length > 0) {
+              coins = data;
+              syncBuffer();
+              return;
+            }
           }
         } catch (e) {
-          coins = DEFAULT_COINS;
+          console.warn('Direct GitHub API fetch failed, falling back to local coins.json', e);
         }
+
+        // Priority 2: Local GitHub Pages coins.json with cache buster
+        try {
+          const res = await fetch('coins.json?v=' + Date.now(), { cache: 'no-store' });
+          if (res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data) && data.length > 0) {
+              coins = data;
+              syncBuffer();
+              return;
+            }
+          }
+        } catch (e) {
+          console.warn('Local coins.json fetch failed, falling back to default', e);
+        }
+
+        coins = DEFAULT_COINS;
         syncBuffer();
       }
     }
