@@ -1,14 +1,5 @@
 [
   {
-    "s": "LUNA2USDT",
-    "type": "Crypto",
-    "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.05508,
-    "wick": 92.5,
-    "range": 7.67,
-    "delta": -0.36
-  },
-  {
     "s": "ZSUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
@@ -34,6 +25,15 @@
     "wick": 81.4,
     "range": 2.01,
     "delta": 0.3
+  },
+  {
+    "s": "LUNA2USDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.0545,
+    "wick": 78.8,
+    "range": 7.67,
+    "delta": -1.41
   },
   {
     "s": "POWERUSDT",
@@ -63,6 +63,15 @@
     "delta": -0.26
   },
   {
+    "s": "BASUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.024572,
+    "wick": 71.5,
+    "range": 3.69,
+    "delta": 0.87
+  },
+  {
     "s": "RIFUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
@@ -81,6 +90,15 @@
     "delta": 0.81
   },
   {
+    "s": "HYUNDAIUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 263.95,
+    "wick": 66.8,
+    "range": 2.5,
+    "delta": -0.76
+  },
+  {
     "s": "ARKUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
@@ -90,15 +108,6 @@
     "delta": 1.25
   },
   {
-    "s": "DDOGUSDT",
-    "type": "Crypto",
-    "tag": "\ud83d\udd34 Red Hammer",
-    "price": 228.92,
-    "wick": 66.7,
-    "range": 4.09,
-    "delta": -1.33
-  },
-  {
     "s": "CHRUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
@@ -106,6 +115,33 @@
     "wick": 65.3,
     "range": 2.88,
     "delta": 0.88
+  },
+  {
+    "s": "LLYUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 1162.46,
+    "wick": 63.3,
+    "range": 2.67,
+    "delta": 0.65
+  },
+  {
+    "s": "AVAUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.2426,
+    "wick": 62.9,
+    "range": 7.36,
+    "delta": 1.98
+  },
+  {
+    "s": "TEMUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 79.44,
+    "wick": 61.6,
+    "range": 2.68,
+    "delta": 0.75
   },
   {
     "s": "MTLUSDT",
@@ -144,13 +180,13 @@
     "delta": 0.77
   },
   {
-    "s": "INJUSDT",
+    "s": "NFLXUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
-    "price": 7.918,
+    "price": 72.87,
     "wick": 59.9,
-    "range": 5.77,
-    "delta": 1.72
+    "range": 1.89,
+    "delta": 0.59
   },
   {
     "s": "BEUSDT",
@@ -162,6 +198,15 @@
     "delta": 0.67
   },
   {
+    "s": "DDOGUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 238.33,
+    "wick": 59.7,
+    "range": 6.8,
+    "delta": 2.72
+  },
+  {
     "s": "PROMUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
@@ -169,6 +214,15 @@
     "wick": 58.7,
     "range": 3.14,
     "delta": 0.97
+  },
+  {
+    "s": "SKRUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.019181,
+    "wick": 58.3,
+    "range": 6.6,
+    "delta": 1.93
   },
   {
     "s": "ORDERUSDT",
@@ -187,15 +241,6 @@
     "wick": 58.0,
     "range": 2.24,
     "delta": 0.66
-  },
-  {
-    "s": "HYUNDAIUSDT",
-    "type": "Crypto",
-    "tag": "\ud83d\udd34 Red Hammer",
-    "price": 263.32,
-    "wick": 57.3,
-    "range": 2.5,
-    "delta": -1.0
   },
   {
     "s": "PATHUSDT",
@@ -237,10 +282,19 @@
     "s": "SOPHUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
-    "price": 0.004436,
-    "wick": 54.0,
-    "range": 4.58,
-    "delta": 1.56
+    "price": 0.004447,
+    "wick": 53.7,
+    "range": 4.6,
+    "delta": 1.81
+  },
+  {
+    "s": "INJUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 7.999,
+    "wick": 53.7,
+    "range": 6.44,
+    "delta": 2.76
   },
   {
     "s": "HEMIUSDT",
@@ -264,10 +318,10 @@
     "s": "GEVUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
-    "price": 957.45,
+    "price": 956.3,
     "wick": 53.5,
     "range": 4.2,
-    "delta": 1.59
+    "delta": 1.47
   },
   {
     "s": "POWRUSDT",
