@@ -18,15 +18,6 @@
     "delta": 0.44
   },
   {
-    "s": "CYPHUSDT",
-    "type": "Crypto",
-    "tag": "\ud83d\udfe2 Green Hammer",
-    "price": 4.081,
-    "wick": 58.5,
-    "range": 2.32,
-    "delta": 0.87
-  },
-  {
     "s": "UAIUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
@@ -52,6 +43,24 @@
     "wick": 53.2,
     "range": 2.77,
     "delta": -0.91
+  },
+  {
+    "s": "CYPHUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 4.092,
+    "wick": 52.9,
+    "range": 2.57,
+    "delta": 1.14
+  },
+  {
+    "s": "XNYUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.007253,
+    "wick": 52.7,
+    "range": 2.35,
+    "delta": 0.85
   },
   {
     "s": "PLAYUSDT",
