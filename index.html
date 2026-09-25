@@ -238,14 +238,14 @@
     async function initCoins() {
       if (symParam) {
         const stockSet = new Set(["AAOIUSDT","ALABUSDT","AMATUSDT","AMCUSDT","ANETUSDT","APLDUSDT","ARMUSDT","AXTIUSDT","BXUSDT","BYDUSDT","BZUSDT","COHRUSDT","CRDOUSDT","CSOPSAMSUNG2LUSDT","CXMTUSDT","DKNGUSDT","FLNCUSDT","GLBEUSDT","HIMSUSDT","HOODUSDT","MRVLUSDT","MUUSDT","PLTRUSDT","RBLXUSDT","RDDTUSDT","RIVNUSDT","SMCIUSDT","SOFIUSDT","SYMUSDT","TZAUSDT","UUSDT"]);
-        coins = symParam.split(',').map(s => {
-          const clean = s.trim().toUpperCase();
-          return {
+        coins = symParam.split(',')
+          .map(s => s.trim().toUpperCase())
+          .filter(s => /^[\x00-\x7F]+$/.test(s))
+          .map(clean => ({
             s: clean,
             type: stockSet.has(clean) ? "Stock" : "Crypto",
             tag: "Bullish Hammer"
-          };
-        });
+          }));
         syncBuffer();
       } else {
         // Priority 1: Direct GitHub API for instant real-time commit data (0s build delay, no CDN cache)
@@ -257,7 +257,7 @@
           if (res.ok) {
             const data = await res.json();
             if (Array.isArray(data) && data.length > 0) {
-              coins = data;
+              coins = data.filter(c => c && c.s && /^[\x00-\x7F]+$/.test(c.s));
               syncBuffer();
               return;
             }
@@ -272,7 +272,7 @@
           if (res.ok) {
             const data = await res.json();
             if (Array.isArray(data) && data.length > 0) {
-              coins = data;
+              coins = data.filter(c => c && c.s && /^[\x00-\x7F]+$/.test(c.s));
               syncBuffer();
               return;
             }
