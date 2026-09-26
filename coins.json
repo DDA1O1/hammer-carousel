@@ -1,5 +1,203 @@
 [
   {
+    "s": "XRPUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 1.5745,
+    "wick": 51.9,
+    "range": 1.67,
+    "delta": 0.43
+  },
+  {
+    "s": "BILLUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.01334,
+    "wick": 70.0,
+    "range": 1.5,
+    "delta": 0.23
+  },
+  {
+    "s": "AEROUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.8473,
+    "wick": 69.9,
+    "range": 3.79,
+    "delta": -0.38
+  },
+  {
+    "s": "COOKIEUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.012461,
+    "wick": 62.4,
+    "range": 1.85,
+    "delta": 0.43
+  },
+  {
+    "s": "ZKCUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.04317,
+    "wick": 79.5,
+    "range": 1.69,
+    "delta": 0.23
+  },
+  {
+    "s": "RENDERUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 1.935,
+    "wick": 47.1,
+    "range": 1.75,
+    "delta": -0.57
+  },
+  {
+    "s": "DIAUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.1603,
+    "wick": 60.7,
+    "range": 1.74,
+    "delta": -0.25
+  },
+  {
+    "s": "PLUMEUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.01887,
+    "wick": 55.2,
+    "range": 4.52,
+    "delta": -1.97
+  },
+  {
+    "s": "SQDUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.03096,
+    "wick": 70.2,
+    "range": 1.51,
+    "delta": -0.39
+  },
+  {
+    "s": "IOTAUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.0505,
+    "wick": 50.5,
+    "range": 2.1,
+    "delta": -0.88
+  },
+  {
+    "s": "CYBERUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.3534,
+    "wick": 50.0,
+    "range": 1.74,
+    "delta": -0.81
+  },
+  {
+    "s": "SXTUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.009377,
+    "wick": 46.8,
+    "range": 1.63,
+    "delta": -0.48
+  },
+  {
+    "s": "ZORAUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.008992,
+    "wick": 52.6,
+    "range": 1.91,
+    "delta": -0.82
+  },
+  {
+    "s": "INTWUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 32.92,
+    "wick": 54.9,
+    "range": 2.15,
+    "delta": -0.48
+  },
+  {
+    "s": "1000XECUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.009165,
+    "wick": 69.9,
+    "range": 1.56,
+    "delta": -0.2
+  },
+  {
+    "s": "ATHUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.006282,
+    "wick": 53.0,
+    "range": 2.09,
+    "delta": -0.73
+  },
+  {
+    "s": "XNYUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.007466,
+    "wick": 53.8,
+    "range": 1.75,
+    "delta": -0.81
+  },
+  {
+    "s": "NILUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.11731,
+    "wick": 56.7,
+    "range": 2.87,
+    "delta": 0.57
+  },
+  {
+    "s": "TAOUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 315.2,
+    "wick": 53.2,
+    "range": 2.28,
+    "delta": -0.81
+  },
+  {
+    "s": "ANKRUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.005118,
+    "wick": 58.3,
+    "range": 2.02,
+    "delta": 0.61
+  },
+  {
+    "s": "LITUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 4.8772,
+    "wick": 63.2,
+    "range": 2.36,
+    "delta": 0.63
+  },
+  {
+    "s": "XPINUSDT",
+    "type": "Crypto",
+    "tag": "\ud83d\udd34 Red Hammer",
+    "price": 0.000929,
+    "wick": 65.2,
+    "range": 2.46,
+    "delta": -0.64
+  },
+  {
     "s": "BABYUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
@@ -12,10 +210,10 @@
     "s": "EULUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 1.4526,
-    "wick": 61.5,
+    "price": 1.4491,
+    "wick": 49.7,
     "range": 2.03,
-    "delta": -0.49
+    "delta": -0.73
   },
   {
     "s": "PUMPUSDT",
@@ -30,10 +228,10 @@
     "s": "1000SHIBUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
-    "price": 0.005973,
-    "wick": 68.3,
-    "range": 1.7,
-    "delta": 0.32
+    "price": 0.006002,
+    "wick": 46.9,
+    "range": 2.47,
+    "delta": 0.81
   },
   {
     "s": "ARKMUSDT",
@@ -93,19 +291,19 @@
     "s": "CHZUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.01671,
-    "wick": 46.4,
+    "price": 0.01672,
+    "wick": 50.0,
     "range": 1.66,
-    "delta": -0.65
+    "delta": -0.59
   },
   {
     "s": "CAPUSDT",
     "type": "Crypto",
-    "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.05184,
-    "wick": 49.5,
-    "range": 1.75,
-    "delta": -0.58
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.05242,
+    "wick": 58.6,
+    "range": 2.45,
+    "delta": 0.54
   },
   {
     "s": "SNXUSDT",
@@ -128,11 +326,11 @@
   {
     "s": "HUSDT",
     "type": "Crypto",
-    "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.0787,
-    "wick": 73.0,
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.07901,
+    "wick": 78.3,
     "range": 4.03,
-    "delta": -0.22
+    "delta": 0.18
   },
   {
     "s": "IOSTUSDT",
@@ -156,28 +354,28 @@
     "s": "BERAUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.2363,
-    "wick": 83.3,
+    "price": 0.2352,
+    "wick": 57.1,
     "range": 1.77,
-    "delta": -0.25
+    "delta": -0.72
   },
   {
     "s": "MOVRUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.9875,
-    "wick": 69.3,
+    "price": 0.9861,
+    "wick": 62.8,
     "range": 2.2,
-    "delta": -0.3
+    "delta": -0.44
   },
   {
     "s": "SAHARAUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.009765,
-    "wick": 51.0,
+    "price": 0.009813,
+    "wick": 74.3,
     "range": 2.09,
-    "delta": -0.97
+    "delta": -0.49
   },
   {
     "s": "KASUSDT",
@@ -247,27 +445,27 @@
     "type": "Crypto",
     "tag": "\ud83d\udfe2 Green Hammer",
     "price": 2.128,
-    "wick": 75.0,
-    "range": 1.51,
+    "wick": 64.9,
+    "range": 1.74,
     "delta": 0.24
   },
   {
     "s": "TURBOUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.0010668,
-    "wick": 54.0,
+    "price": 0.0010662,
+    "wick": 50.6,
     "range": 1.62,
-    "delta": -0.47
+    "delta": -0.52
   },
   {
     "s": "GRTUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.02805,
-    "wick": 47.0,
+    "price": 0.02821,
+    "wick": 71.2,
     "range": 2.34,
-    "delta": -0.74
+    "delta": -0.18
   },
   {
     "s": "METUSDT",
@@ -282,10 +480,10 @@
     "s": "TUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.00556,
-    "wick": 61.9,
-    "range": 1.88,
-    "delta": -0.63
+    "price": 0.005578,
+    "wick": 63.4,
+    "range": 2.34,
+    "delta": -0.3
   },
   {
     "s": "POWERUSDT",
@@ -300,19 +498,19 @@
     "s": "ETHFIUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.7136,
-    "wick": 47.4,
+    "price": 0.7156,
+    "wick": 59.1,
     "range": 2.38,
-    "delta": -0.86
+    "delta": -0.58
   },
   {
     "s": "LDOUSDT",
     "type": "Crypto",
-    "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.4874,
-    "wick": 47.4,
-    "range": 1.93,
-    "delta": -0.89
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.4926,
+    "wick": 69.5,
+    "range": 2.6,
+    "delta": 0.16
   },
   {
     "s": "KSMUSDT",
@@ -327,10 +525,10 @@
     "s": "SUPERUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.18469,
-    "wick": 76.3,
+    "price": 0.1836,
+    "wick": 51.4,
     "range": 2.36,
-    "delta": -0.36
+    "delta": -0.94
   },
   {
     "s": "VETUSDT",
@@ -362,11 +560,11 @@
   {
     "s": "ARCUSDT",
     "type": "Crypto",
-    "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.07181,
-    "wick": 66.9,
-    "range": 1.64,
-    "delta": -0.24
+    "tag": "\ud83d\udfe2 Green Hammer",
+    "price": 0.07229,
+    "wick": 70.1,
+    "range": 1.9,
+    "delta": 0.43
   },
   {
     "s": "ZAMAUSDT",
@@ -453,10 +651,10 @@
     "s": "BROCCOLI714USDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.03001,
-    "wick": 54.3,
-    "range": 3.46,
-    "delta": -1.15
+    "price": 0.02987,
+    "wick": 54.1,
+    "range": 4.45,
+    "delta": -1.61
   },
   {
     "s": "GRASSUSDT",
@@ -498,10 +696,10 @@
     "s": "GUSDT",
     "type": "Crypto",
     "tag": "\ud83d\udd34 Red Hammer",
-    "price": 0.005736,
-    "wick": 57.7,
+    "price": 0.005721,
+    "wick": 47.2,
     "range": 2.45,
-    "delta": -1.02
+    "delta": -1.28
   },
   {
     "s": "SPXUSDT",
